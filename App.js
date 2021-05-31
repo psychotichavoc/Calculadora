@@ -52,6 +52,23 @@ export default function App() {
         calculator()
         return
       case '+/-':
+        let splitNumberss = currentNumber.split(' ')
+        let firstNumberr = parseFloat(splitNumberss[0])
+        let lastNumberr = parseFloat(splitNumberss[2])
+        let operatorr = splitNumberss[1]
+        lastNumberr ? setCurrentNumber(firstNumberr.toString() + ' ' + operatorr + ' ' + '-' + lastNumberr.toString()) : setCurrentNumber('-' + firstNumberr.toString() + ' ' + operatorr)
+        if (lastNumberr)
+        {
+          setCurrentNumber(firstNumberr.toString() + ' ' + operatorr + ' ' + '-' + lastNumberr.toString())
+        }
+        else if (operatorr)
+        {
+          setCurrentNumber('-' + firstNumberr.toString() + ' ' + operatorr + ' ')
+        }
+        else if(firstNumberr)
+        {
+          setCurrentNumber('-' + firstNumberr.toString())
+        }
         return
       case '%':
         let splitNumbers = currentNumber.split(' ')

@@ -53,6 +53,22 @@ export default function App() {
         return
       case '+/-':
         return
+      case '%':
+        let splitNumbers = currentNumber.split(' ')
+        let firstNumber = parseFloat(splitNumbers[0])
+        let lastNumber = parseFloat(splitNumbers[2])
+        let operator = splitNumbers[1]
+        if(operator == '+' || operator == '-')
+        {
+          let num = firstNumber * (lastNumber/100)
+          setCurrentNumber(firstNumber.toString() + ' ' + operator + ' ' + num.toString())
+        }
+        if(operator == 'x' || operator == '/')
+        {
+          let num = lastNumber/100
+          setCurrentNumber(firstNumber.toString() + ' ' + operator + ' ' + num.toString())
+        }
+        return
     }
 
     setCurrentNumber(currentNumber + buttonPressed)
